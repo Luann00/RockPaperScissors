@@ -1,3 +1,4 @@
+/*
 function game() {
     let player1Choice = prompt("Your choice: ");
 
@@ -49,4 +50,9 @@ function playGame() {
 }
 //execute game 5 times
 playGame();
+*/
+
+
+
+
 
