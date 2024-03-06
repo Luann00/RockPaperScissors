@@ -1,19 +1,9 @@
-function getComputerChoice() {
-    let choices = ["Rock", "Paper", "Scissors"]
-
-    //get random number between 1 and 3
-    let number = Math.floor(Math.random() * 3);
-
-    //return random choice for rock, paper o scissos
-    return choices[number];
-}
-
-
-
 function game() {
-    let choices = ["Rock", "Paper", "Scissors"]
-
     let player1Choice = prompt("Your choice: ");
+
+    if (player1Choice === null) {
+        return;
+    }
 
     //make input lowercase and then check if it is rock, paper or sciccos
     let player1LowerCase = player1Choice.toLowerCase();
@@ -42,6 +32,15 @@ function game() {
 
     return;
 }
+
+function getComputerChoice() {
+    let choices = ["Rock", "Paper", "Scissors"]
+    //get random number between 1 and 3
+    let number = Math.floor(Math.random() * 3);
+    //return random choice for rock, paper o scissos
+    return choices[number];
+}
+
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
