@@ -14,12 +14,7 @@ function playRound(choice) {
     result.appendChild(h2Element);
 
     if (player1LowerCase == botChoiceLowerCase) {
-        resultRound.textContent = `${botChoiceLowerCase} and ${player1LowerCase}, so it is a tie!`;
-        playerPoints++;
-        computerPoints++;
-        document.querySelector("#playerPoints").textContent = playerPoints;
-        document.querySelector("#computerPoints").textContent = computerPoints;
-        alert("ja unentschieden!")
+        h2Element.textContent = `${botChoiceLowerCase} and ${player1LowerCase}, so it is a tie!`;
         return;
     }
 
@@ -40,7 +35,6 @@ function playRound(choice) {
             computerPoints++;
         }
     } else {
-        alert("du bist hier bre")
         if (botChoiceLowerCase == "scissors") {
             h2Element.textContent = "Player 2(bot) won, scissors beats paper!";
             computerPoints++;

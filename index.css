@@ -1,11 +1,13 @@
 .UI {
     height: 100vh;
-    background-color: grey;
+    background-color: #E6E6FA;
+    text-align: center;
 }
 
 #headline {
     text-align: center;
-    margin: 0;
+    color: #660033;
+
 }
 
 .buttons {
@@ -17,18 +19,35 @@
 
 button {
     width: 20%;
-    
+    height:90%;
 }
 
 #result{
     text-align: center;
-    margin-top: 0;
+    margin-top: 10%;
+    margin-bottom:10%;
+    color: #660033;
+}
+
+.buttons{
+    height: 100px; /* Set a specific height */
+
 }
 
 .points {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     margin-top: 10%;
     margin-bottom: 5%;
+    color: #660033;
+
+}
+
+.p1Point{
+    border: solid;
+}
+
+.botPoints{
+    border: solid;
 }
