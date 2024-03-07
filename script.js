@@ -13,10 +13,6 @@ function playRound(choice) {
     let h2Element = document.querySelector("#result h2");
     result.appendChild(h2Element);
 
-
-    alert("you choice: " + player1LowerCase);
-
-
     if (player1LowerCase == botChoiceLowerCase) {
         resultRound.textContent = `${botChoiceLowerCase} and ${player1LowerCase}, so it is a tie!`;
         playerPoints++;
