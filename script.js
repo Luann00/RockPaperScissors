@@ -67,6 +67,11 @@ function checkPoints() {
         winner.style.color = "green";
         result.appendChild(winner);
 
+        playAgainButton = document.createElement("button");
+        playAgainButton.textContent = "Play Again";
+        playAgainButton.addEventListener("click", resetPoints);
+        result.appendChild(playAgainButton);
+
 
         //disable the buttons after the end of the game
         document.querySelector(".rock").disabled = true;
@@ -79,6 +84,11 @@ function checkPoints() {
         winner.textContent = "The bot wins the game!"
         winner.style.color = "green";
         result.appendChild(winner);
+
+        playAgainButton = document.createElement("button");
+        playAgainButton.textContent = "Play Again";
+        playAgainButton.addEventListener("click", resetPoints);
+        result.appendChild(playAgainButton);
 
 
         //disable the buttons after the end of the game
@@ -93,6 +103,23 @@ function getComputerChoice() {
     let number = Math.floor(Math.random() * 3);
     //return random choice for rock, paper o scissos
     return choices[number];
+}
+
+
+//this function resets the game by resetting the points to 0 and enabling the buttons again
+function resetPoints() {
+    playerPoints = 0;
+    computerPoints = 0;
+
+    document.querySelector(".rock").disabled = false;
+    document.querySelector(".paper").disabled = false;
+    document.querySelector(".scissors").disabled = false;
+
+    document.querySelector("#playerPoints").textContent = playerPoints;
+    document.querySelector("#computerPoints").textContent = computerPoints;
+
+
+    return;
 }
 
 
