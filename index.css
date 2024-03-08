@@ -19,19 +19,18 @@
 
 button {
     width: 20%;
-    height:90%;
+    height: 90%;
 }
 
-#result{
+#result {
     text-align: center;
     margin-top: 10%;
-    margin-bottom:10%;
+    margin-bottom: 10%;
     color: #660033;
 }
 
-.buttons{
-    height: 100px; /* Set a specific height */
-
+.buttons {
+    height: 100px;
 }
 
 .points {
@@ -44,13 +43,13 @@ button {
 
 }
 
-.p1Point{
+.p1Point {
     border: solid;
     padding: 0.5rem;
 
 }
 
-.botPoints{
+.botPoints {
     border: solid;
     padding: 0.5rem;
 

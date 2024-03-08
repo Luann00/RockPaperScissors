@@ -2,6 +2,11 @@
 let playerPoints = 0;
 let computerPoints = 0;
 
+let result = document.getElementById("result");
+let h2Element = document.querySelector("#result h2");
+result.appendChild(h2Element);
+
+
 function playRound(choice) {
     //make input lowercase and then check if it is rock, paper or sciccos
     let player1LowerCase = choice.toLowerCase();
@@ -10,10 +15,6 @@ function playRound(choice) {
     let botChoice = getComputerChoice();
     let botChoiceLowerCase = botChoice.toLowerCase();
 
-
-    let result = document.getElementById("result");
-    let h2Element = document.querySelector("#result h2");
-    result.appendChild(h2Element);
 
     if (player1LowerCase == botChoiceLowerCase) {
         h2Element.textContent = `${botChoiceLowerCase} and ${player1LowerCase}, so it is a tie!`;
@@ -69,33 +70,48 @@ function checkPoints() {
 
         playAgainButton = document.createElement("button");
         playAgainButton.textContent = "Play Again";
-        playAgainButton.addEventListener("click", resetPoints);
+        playAgainButton.addEventListener("click", function () {
+            resetPoints(winner, playAgainButton);
+        });
         result.appendChild(playAgainButton);
 
-
-        //disable the buttons after the end of the game
-        document.querySelector(".rock").disabled = true;
-        document.querySelector(".paper").disabled = true;
-        document.querySelector(".scissors").disabled = true;
+        disableButtons();
 
 
     } else if (computerPoints == 5) {
         winner = document.createElement("h2");
-        winner.textContent = "The bot wins the game!"
-        winner.style.color = "green";
+        winner.textContent = "You lose, the bot wins the game!"
+        winner.style.color = "red";
         result.appendChild(winner);
 
         playAgainButton = document.createElement("button");
         playAgainButton.textContent = "Play Again";
-        playAgainButton.addEventListener("click", resetPoints);
+        playAgainButton.addEventListener("click", function () {
+            resetPoints(winner, playAgainButton);
+        });
         result.appendChild(playAgainButton);
 
-
-        //disable the buttons after the end of the game
-        document.querySelector(".rock").disabled = true;
-        document.querySelector(".paper").disabled = true;
-        document.querySelector(".scissors").disabled = true;
+        disableButtons();
     }
+}
+
+//disable the buttons after the end of the game
+function disableButtons() {
+    document.querySelector(".rock").disabled = true;
+    document.querySelector(".paper").disabled = true;
+    document.querySelector(".scissors").disabled = true;
+}
+
+function enableButtons() {
+    document.querySelector(".rock").disabled = false;
+    document.querySelector(".paper").disabled = false;
+    document.querySelector(".scissors").disabled = false;
+
+}
+
+//this function clears both the text of the result and the declaration of the winner after an end of the game
+function clearText(winner) {
+    result.removeChild(winner);
 }
 // This function randomly selects one of three options (Rock, Paper, or Scissors) for the computer's choice
 function getComputerChoice() {
@@ -107,16 +123,21 @@ function getComputerChoice() {
 
 
 //this function resets the game by resetting the points to 0 and enabling the buttons again
-function resetPoints() {
+//to-do: remove from result the h2 winner declaration
+function resetPoints(winner, button) {
     playerPoints = 0;
     computerPoints = 0;
 
-    document.querySelector(".rock").disabled = false;
-    document.querySelector(".paper").disabled = false;
-    document.querySelector(".scissors").disabled = false;
-
+    //set the point counter to 0
     document.querySelector("#playerPoints").textContent = playerPoints;
     document.querySelector("#computerPoints").textContent = computerPoints;
+
+
+    enableButtons();
+
+    result.removeChild(winner);
+    h2Element.textContent = "";
+    result.removeChild(button);
 
 
     return;
