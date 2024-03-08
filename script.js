@@ -6,8 +6,10 @@ function playRound(choice) {
     //make input lowercase and then check if it is rock, paper or sciccos
     let player1LowerCase = choice.toLowerCase();
 
+    //automatic chose for the computer
     let botChoice = getComputerChoice();
     let botChoiceLowerCase = botChoice.toLowerCase();
+
 
     let result = document.getElementById("result");
     let h2Element = document.querySelector("#result h2");
@@ -15,6 +17,7 @@ function playRound(choice) {
 
     if (player1LowerCase == botChoiceLowerCase) {
         h2Element.textContent = `${botChoiceLowerCase} and ${player1LowerCase}, so it is a tie!`;
+        checkPoints();
         return;
     }
 
@@ -48,9 +51,42 @@ function playRound(choice) {
     document.querySelector("#playerPoints").textContent = playerPoints;
     document.querySelector("#computerPoints").textContent = computerPoints;
 
+    checkPoints();
+
     return;
 }
 
+
+//this function checks whether one of the 2 players has reached 5 points and thus ended the game
+function checkPoints() {
+    let winner;
+
+    if (playerPoints == 5) {
+        winner = document.createElement("h2");
+        winner.textContent = "You have 5 points, you win the game!"
+        winner.style.color = "green";
+        result.appendChild(winner);
+
+
+        //disable the buttons after the end of the game
+        document.querySelector(".rock").disabled = true;
+        document.querySelector(".paper").disabled = true;
+        document.querySelector(".scissors").disabled = true;
+
+
+    } else if (computerPoints == 5) {
+        winner = document.createElement("h2");
+        winner.textContent = "The bot wins the game!"
+        winner.style.color = "green";
+        result.appendChild(winner);
+
+
+        //disable the buttons after the end of the game
+        document.querySelector(".rock").disabled = true;
+        document.querySelector(".paper").disabled = true;
+        document.querySelector(".scissors").disabled = true;
+    }
+}
 // This function randomly selects one of three options (Rock, Paper, or Scissors) for the computer's choice
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"]

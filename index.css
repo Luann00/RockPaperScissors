@@ -46,8 +46,12 @@ button {
 
 .p1Point{
     border: solid;
+    padding: 0.5rem;
+
 }
 
 .botPoints{
     border: solid;
+    padding: 0.5rem;
+
 }
