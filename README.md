@@ -3,7 +3,7 @@
 Live Preview: [https://luann00.github.io/RockPaperScissors/](https://luann00.github.io/RockPaperScissors/)
 
 ## Description
-A simple Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. Play against the computer and track your score. 
+A simple Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. Play against the computer and try to beat it! 
 
 ## Features
 - Interactive UI with real-time score updates
